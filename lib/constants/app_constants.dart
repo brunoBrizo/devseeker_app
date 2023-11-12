@@ -11,7 +11,7 @@ const kDarkBlue = Color(0xff1c153e);
 const kLightPurple = Color(0xff6352c5);
 const kDarkPurple = Color(0xff6352c5);
 
-double hieght = 812.h;
+double height = 812.h;
 double width = 375.w;
 
 String theId = "";

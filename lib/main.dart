@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,15 +18,17 @@ Widget defaultHome = const OnboardingScreen();
 
 ///TODO: Hook the app to firebase using firebase cli
 void main() async {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => OnBoardNotifier()),
-    ChangeNotifierProvider(create: (context) => LoginNotifier()),
-    ChangeNotifierProvider(create: (context) => ZoomNotifier()),
-    ChangeNotifierProvider(create: (context) => SignUpNotifier()),
-    ChangeNotifierProvider(create: (context) => JobsNotifier()),
-    ChangeNotifierProvider(create: (context) => ImageUploader()),
-    ChangeNotifierProvider(create: (context) => ProfileNotifier()),
-  ], child: const MyApp()));
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => OnBoardNotifier()),
+      ChangeNotifierProvider(create: (context) => LoginNotifier()),
+      ChangeNotifierProvider(create: (context) => ZoomNotifier()),
+      ChangeNotifierProvider(create: (context) => SignUpNotifier()),
+      ChangeNotifierProvider(create: (context) => JobsNotifier()),
+      ChangeNotifierProvider(create: (context) => ImageUploader()),
+      ChangeNotifierProvider(create: (context) => ProfileNotifier()),
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -35,23 +37,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      useInheritedMediaQuery: true,
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Dbestech JobHub',
-          theme: ThemeData(
-            scaffoldBackgroundColor: Color(kLight.value),
-            iconTheme: IconThemeData(color: Color(kDark.value)),
-            primarySwatch: Colors.grey,
-          ),
-          home: defaultHome,
-        );
-      },
+    return SafeArea(
+      child: ScreenUtilInit(
+        useInheritedMediaQuery: true,
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'DevSeeker',
+            theme: ThemeData(
+              scaffoldBackgroundColor: Color(kLight.value),
+              iconTheme: IconThemeData(color: Color(kDark.value)),
+              primarySwatch: Colors.grey,
+            ),
+            home: defaultHome,
+          );
+        },
+      ),
     );
   }
 }
