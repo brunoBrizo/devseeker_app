@@ -12,9 +12,8 @@ import 'package:devseeker_app/controllers/profile_provider.dart';
 import 'package:devseeker_app/controllers/signup_provider.dart';
 import 'package:devseeker_app/controllers/zoom_provider.dart';
 import 'package:devseeker_app/views/screens/mainscreen.dart';
-import 'package:devseeker_app/views/screens/onboarding/onboarding_screen.dart';
 
-Widget defaultHome = const OnboardingScreen();
+Widget defaultHome = const Mainscreen();
 
 ///TODO: Hook the app to firebase using firebase cli
 void main() async {
