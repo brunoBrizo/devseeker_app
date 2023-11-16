@@ -1,7 +1,12 @@
 import 'package:devseeker_app/controllers/zoom_provider.dart';
-import 'package:devseeker_app/views/common/drawer/drawer_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:devseeker_app/views/common/exports.dart';
+import 'package:devseeker_app/views/screens/applications/applications_page.dart';
+import 'package:devseeker_app/views/screens/bookmarks/bookmarks_page.dart';
+import 'package:devseeker_app/views/common/drawer/drawer_screen.dart';
+import 'package:devseeker_app/views/screens/chat/chat_list_page.dart';
+import 'package:devseeker_app/views/screens/home/home_page.dart';
+import 'package:devseeker_app/views/screens/profile/profile_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
 
@@ -21,24 +26,32 @@ class _MainscreenState extends State<Mainscreen> {
             menuScreen: DrawerScreen(indexSetter: (index) {
               zoomNotifier.currentIndex = index;
             }),
-            mainScreen: currentScreen(context));
+            borderRadius: 30,
+            menuBackgroundColor: Color(kLightBlue.value),
+            angle: 0,
+            slideWidth: 230,
+            mainScreen: currentScreen());
       },
     ));
   }
 
-  Widget currentScreen(BuildContext context) {
+  Widget currentScreen() {
     var zoomNotifier = Provider.of<ZoomNotifier>(context);
     switch (zoomNotifier.currentIndex) {
-      // case 0:
-      //   return const HomeScreen();
-      // case 1:
-      //   return const ProfileScreen();
-      // case 2:
-      //   return const SettingsScreen();
-      // default:
-      //   return const HomeScreen();
+      case 0:
+        return const HomePage();
+      case 1:
+        return const ChatListPage();
+      case 2:
+        return const BookmarksPage();
+      case 3:
+        return const ApplicationsPage();
+      case 4:
+        return const ProfilePage(
+          drawer: true,
+        );
+      default:
+        return const HomePage();
     }
-
-    return Container();
   }
 }
