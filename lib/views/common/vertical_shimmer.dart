@@ -23,11 +23,13 @@ class VerticalShimmer extends StatelessWidget {
       ],
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-        height: height * 0.15,
+        height: hieght * 0.15,
         width: width,
         decoration: BoxDecoration(
           color: Color(kLightGrey.value),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
       ),
     );

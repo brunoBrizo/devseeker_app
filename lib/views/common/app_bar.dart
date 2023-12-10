@@ -23,9 +23,8 @@ class CustomAppBar extends StatelessWidget {
       actions: actions,
       centerTitle: true,
       title: ReusableText(
-        text: text ?? "",
-        style: appStyle(16, Color(kDark.value), FontWeight.w600),
-      ),
+          text: text ?? "",
+          style: appStyle(16, Color(kDark.value), FontWeight.w600)),
     );
   }
 }

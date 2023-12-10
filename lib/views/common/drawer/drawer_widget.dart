@@ -14,12 +14,13 @@ class DrawerWidget extends StatelessWidget {
       onTap: () {
         ZoomDrawer.of(context)!.toggle();
       },
-      child: SvgPicture.asset(
-        "assets/icons/menu.svg",
-        width: 30.w,
-        height: 30.h,
-        // ignore: deprecated_member_use
-        color: color,
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        child: SvgPicture.asset(
+          "assets/icons/menu.svg",
+          width: 30.w,
+          height: 30.h,
+        ),
       ),
     );
   }

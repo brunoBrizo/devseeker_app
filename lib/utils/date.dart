@@ -16,9 +16,7 @@ String duTimeLineFormat(DateTime dt) {
   } else if (difference.inDays < 365) {
     final dtFormat = DateFormat('MM-dd');
     return dtFormat.format(dt);
-  }
-  // yyyy-MM-dd
-  else {
+  } else {
     final dtFormat = DateFormat('yyyy-MM-dd');
     var str = dtFormat.format(dt);
     return str;

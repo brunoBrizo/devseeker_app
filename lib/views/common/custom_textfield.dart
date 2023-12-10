@@ -3,15 +3,14 @@ import 'package:devseeker_app/constants/app_constants.dart';
 import 'package:devseeker_app/views/common/app_style.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    super.key,
-    required this.controller,
-    required this.hintText,
-    required this.keyboardType,
-    this.validator,
-    this.suffixIcon,
-    this.obscureText,
-  });
+  const CustomTextField(
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      required this.keyboardType,
+      this.validator,
+      this.suffixIcon,
+      this.obscureText});
 
   final TextEditingController controller;
   final String hintText;
@@ -24,9 +23,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(kLightGrey.value),
-        borderRadius: const BorderRadius.all(Radius.circular(9)),
-      ),
+          color: Color(kLightGrey.value),
+          borderRadius: const BorderRadius.all(Radius.circular(9))),
       child: TextFormField(
         keyboardType: keyboardType,
         obscureText: obscureText ?? false,
