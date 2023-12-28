@@ -8,6 +8,7 @@ This repository contains the frontend codebase for the DevSeeker application, wh
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
 
