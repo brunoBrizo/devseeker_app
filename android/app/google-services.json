@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "386995374587",
+    "project_id": "devseeker-b78d0",
+    "storage_bucket": "devseeker-b78d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386995374587:android:f757e09c2de0197f97635e",
+        "android_client_info": {
+          "package_name": "com.example.devseeker_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDroRTzByz73PwtEkUPqjK5eg8oIs9HGW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

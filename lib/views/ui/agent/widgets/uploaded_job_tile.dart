@@ -27,7 +27,7 @@ class UploadedTile extends StatelessWidget {
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-            height: hieght * 0.1,
+            height: hieght * 0.12,
             width: width,
             decoration: const BoxDecoration(
                 color: Color(0x09000000),

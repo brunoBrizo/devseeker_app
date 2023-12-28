@@ -90,7 +90,7 @@ class _SkillsWidgetState extends State<SkillsWidget> {
                 },
               )
             : SizedBox(
-                height: hieght * 0.04,
+                height: hieght * 0.05,
                 child: FutureBuilder<List<Skills>>(
                     future: skillsList,
                     builder: (context, snapshot) {

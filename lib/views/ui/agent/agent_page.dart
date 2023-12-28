@@ -35,122 +35,118 @@ class AgentDetails extends StatelessWidget {
         body: Stack(
           children: [
             Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  padding: const EdgeInsets.only(top: 5, left: 25, right: 0),
-                  height: 140,
-                  decoration: const BoxDecoration(
-                      color: Color(0xFF3281E3),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: Column(
-                    children: [
-                      Consumer<AgentsNotifier>(
-                        builder: (context, agentsNotifier, child) {
-                          var agent = agentsNotifier.agent;
-                          var agencyInfo =
-                              agentsNotifier.getAgencyInfo(agent.uid);
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        ReusableText(
-                                          text: "Company",
-                                          style: appStyle(10, Colors.white54,
-                                              FontWeight.w600),
-                                        ),
-                                        ReusableText(
-                                          text: 'Address',
-                                          style: appStyle(10, Colors.white54,
-                                              FontWeight.normal),
-                                        ),
-                                        ReusableText(
-                                          text: 'Working hours',
-                                          style: appStyle(10, Colors.white54,
-                                              FontWeight.normal),
-                                        ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20.0),
-                                      child: Container(
-                                        height: 60,
-                                        width: 1,
-                                        color: Colors.amberAccent,
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                padding: const EdgeInsets.only(top: 5, left: 25, right: 0),
+                height: 140,
+                decoration: const BoxDecoration(
+                    color: Color(0xFF3281E3),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20))),
+                child: Column(
+                  children: [
+                    Consumer<AgentsNotifier>(
+                      builder: (context, agentsNotifier, child) {
+                        var agent = agentsNotifier.agent;
+                        var agencyInfo =
+                            agentsNotifier.getAgencyInfo(agent.uid);
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ReusableText(
+                                        text: "Company",
+                                        style: appStyle(10, Colors.white54,
+                                            FontWeight.w600),
                                       ),
+                                      ReusableText(
+                                        text: 'Address',
+                                        style: appStyle(10, Colors.white54,
+                                            FontWeight.normal),
+                                      ),
+                                      ReusableText(
+                                        text: 'Working hours',
+                                        style: appStyle(10, Colors.white54,
+                                            FontWeight.normal),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0),
+                                    child: Container(
+                                      height: 60,
+                                      width: 1,
+                                      color: Colors.amberAccent,
                                     ),
-                                    FutureBuilder<GetAgent>(
-                                        future: agencyInfo,
-                                        builder: (context, snapshot) {
-                                          if (snapshot.connectionState ==
-                                              ConnectionState.waiting) {
-                                            return const SizedBox.shrink();
-                                          } else if (snapshot.hasError) {
-                                            return Text(
-                                                "Error ${snapshot.error}");
-                                          }
-                                          var agent = snapshot.data;
-                                          return Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              ReusableText(
-                                                text: agent!.company,
-                                                style: appStyle(
-                                                  10,
-                                                  Colors.white,
-                                                  FontWeight.w600,
-                                                ),
+                                  ),
+                                  FutureBuilder<GetAgent>(
+                                      future: agencyInfo,
+                                      builder: (context, snapshot) {
+                                        if (snapshot.connectionState ==
+                                            ConnectionState.waiting) {
+                                          return const SizedBox.shrink();
+                                        } else if (snapshot.hasError) {
+                                          return Text(
+                                              "Error ${snapshot.error}");
+                                        }
+                                        var agent = snapshot.data;
+                                        return Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ReusableText(
+                                              text: agent!.company,
+                                              style: appStyle(
+                                                10,
+                                                Colors.white,
+                                                FontWeight.w600,
                                               ),
-                                              ReusableText(
-                                                text: agent.hqAddress,
-                                                style: appStyle(
-                                                    10,
-                                                    Colors.white,
-                                                    FontWeight.normal),
-                                              ),
-                                              ReusableText(
-                                                text: agent.workingHrs,
-                                                style: appStyle(
-                                                    10,
-                                                    Colors.white,
-                                                    FontWeight.normal),
-                                              ),
-                                            ],
-                                          );
-                                        }),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                CircularAvata(
-                                    w: 40, h: 40, image: agent.profile),
-                              ],
-                            ),
-                          );
-                        },
-                      )
-                    ],
-                  ),
-                )),
+                                            ),
+                                            ReusableText(
+                                              text: agent.hqAddress,
+                                              style: appStyle(10, Colors.white,
+                                                  FontWeight.normal),
+                                            ),
+                                            ReusableText(
+                                              text: agent.workingHrs,
+                                              style: appStyle(10, Colors.white,
+                                                  FontWeight.normal),
+                                            ),
+                                          ],
+                                        );
+                                      }),
+                                ],
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              CircularAvata(w: 40, h: 40, image: agent.profile),
+                            ],
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              ),
+            ),
             Positioned(
-              top: 80,
+              top: 85,
               left: 0,
               right: 0,
               bottom: 0,

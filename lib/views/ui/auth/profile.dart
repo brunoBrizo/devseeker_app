@@ -109,10 +109,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                       children: [
                                         Row(
                                           children: [
-                                            const CircularAvata(
+                                            CircularAvata(
                                               w: 50,
                                               h: 50,
-                                              image:
+                                              image: userData?.profile ??
                                                   "https://d326fntlu7tb1e.cloudfront.net/uploads/bdec9d7d-0544-4fc4-823d-3b898f6dbbbf-vinci_03.jpeg",
                                             ),
                                             const WidthSpacer(width: 20),
@@ -220,9 +220,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   const HeightSpacer(size: 20),
                                   ReusableText(
-                                      text: "Agent Information",
-                                      style: appStyle(
-                                          15, Colors.black, FontWeight.w600)),
+                                    text: "Agent Information",
+                                    style: appStyle(
+                                        15, Colors.black, FontWeight.w600),
+                                  ),
                                   const HeightSpacer(size: 10),
                                   userData!.isAgent == true
                                       ? const AgentTile()
@@ -247,10 +248,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 size: 25),
                                           ],
                                         ),
-                                  const HeightSpacer(size: 20),
+                                  const HeightSpacer(size: 35),
                                   CustomOutlineBtn(
                                     width: width,
-                                    height: 40,
+                                    height: 35,
                                     onTap: () {
                                       if (userData.isAgent == true) {
                                         Get.to(() => const UploadJobs());
@@ -263,12 +264,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ? "Upload Job"
                                         : "Apply To Be an Agent",
                                   ),
-                                  const HeightSpacer(size: 20),
+                                  const HeightSpacer(size: 15),
                                   Consumer<LoginNotifier>(
                                     builder: (context, loginNotifier, child) {
                                       return CustomOutlineBtn(
                                         width: width,
-                                        height: 40,
+                                        height: 35,
                                         onTap: () {
                                           loginNotifier.logout();
                                           zoomNotifier.currentIndex = 0;

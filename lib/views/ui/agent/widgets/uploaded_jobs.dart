@@ -29,7 +29,8 @@ class UploadedJobs extends StatelessWidget {
               } else {
                 final job = snapshot.data;
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 12.0),
                   child: ListView.builder(
                       itemCount: job!.length,
                       itemBuilder: (context, index) {
