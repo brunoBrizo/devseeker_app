@@ -60,6 +60,11 @@ class LoginNotifier extends ChangeNotifier {
     profile = prefs.getString('profile') ?? '';
   }
 
+  getProfilePic() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return profile = prefs.getString('profile') ?? '';
+  }
+
   final loginFormKey = GlobalKey<FormState>();
   final profileFormKey = GlobalKey<FormState>();
 

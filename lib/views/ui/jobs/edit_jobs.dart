@@ -39,12 +39,6 @@ class _EditJobsState extends State<EditJobs> {
       TextEditingController(text: editable.requirements[0]);
   TextEditingController requirements2 =
       TextEditingController(text: editable.requirements[1]);
-  TextEditingController requirements3 =
-      TextEditingController(text: editable.requirements[2]);
-  TextEditingController requirements4 =
-      TextEditingController(text: editable.requirements[3]);
-  TextEditingController requirements5 =
-      TextEditingController(text: editable.requirements[4]);
 
   @override
   Widget build(BuildContext context) {
@@ -284,45 +278,45 @@ class _EditJobsState extends State<EditJobs> {
                                   return null;
                                 }
                               }),
-                          Buildtextfield(
-                              height: 100,
-                              label: const Text('Option 3'),
-                              hintText: "Requirements",
-                              maxLines: 3,
-                              controller: requirements3,
-                              onSubmitted: (value) {
-                                if (value!.isEmpty && value.length < 50) {
-                                  return "Description should have more than 50 characters";
-                                } else {
-                                  return null;
-                                }
-                              }),
-                          Buildtextfield(
-                              height: 100,
-                              label: const Text('Option 4'),
-                              hintText: "Requirements",
-                              maxLines: 3,
-                              controller: requirements4,
-                              onSubmitted: (value) {
-                                if (value!.isEmpty && value.length < 50) {
-                                  return "Description should have more than 50 characters";
-                                } else {
-                                  return null;
-                                }
-                              }),
-                          Buildtextfield(
-                              height: 100,
-                              label: const Text('Option 5'),
-                              hintText: "Requirements",
-                              maxLines: 3,
-                              controller: requirements5,
-                              onSubmitted: (value) {
-                                if (value!.isEmpty && value.length < 50) {
-                                  return "Description should have more than 50 characters";
-                                } else {
-                                  return null;
-                                }
-                              }),
+                          // Buildtextfield(
+                          //     height: 100,
+                          //     label: const Text('Option 3'),
+                          //     hintText: "Requirements",
+                          //     maxLines: 3,
+                          //     controller: requirements3,
+                          //     onSubmitted: (value) {
+                          //       if (value!.isEmpty && value.length < 50) {
+                          //         return "Description should have more than 50 characters";
+                          //       } else {
+                          //         return null;
+                          //       }
+                          //     }),
+                          // Buildtextfield(
+                          //     height: 100,
+                          //     label: const Text('Option 4'),
+                          //     hintText: "Requirements",
+                          //     maxLines: 3,
+                          //     controller: requirements4,
+                          //     onSubmitted: (value) {
+                          //       if (value!.isEmpty && value.length < 50) {
+                          //         return "Description should have more than 50 characters";
+                          //       } else {
+                          //         return null;
+                          //       }
+                          //     }),
+                          // Buildtextfield(
+                          //     height: 100,
+                          //     label: const Text('Option 5'),
+                          //     hintText: "Requirements",
+                          //     maxLines: 3,
+                          //     controller: requirements5,
+                          //     onSubmitted: (value) {
+                          //       if (value!.isEmpty && value.length < 50) {
+                          //         return "Description should have more than 50 characters";
+                          //       } else {
+                          //         return null;
+                          //       }
+                          //     }),
                           CustomOutlineBtn(
                             width: width,
                             height: 40,
@@ -344,9 +338,9 @@ class _EditJobsState extends State<EditJobs> {
                                   requirements: [
                                     requirements1.text,
                                     requirements2.text,
-                                    requirements3.text,
-                                    requirements4.text,
-                                    requirements5.text
+                                    // requirements3.text,
+                                    // requirements4.text,
+                                    // requirements5.text
                                   ]);
 
                               var newModel = createJobsRequestToJson(model);

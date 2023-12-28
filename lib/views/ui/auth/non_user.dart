@@ -23,19 +23,18 @@ class NonUser extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(99)),
-            child: CachedNetworkImage(
-              width: 70.w,
-              height: 70.h,
+            child: Image.asset(
+              'assets/images/devSeeker.png',
+              width: 200.w,
+              height: 200.h,
               fit: BoxFit.cover,
-              imageUrl:
-                  "https://d326fntlu7tb1e.cloudfront.net/uploads/bdec9d7d-0544-4fc4-823d-3b898f6dbbbf-vinci_03.jpeg",
             ),
           ),
           const HeightSpacer(
             size: 20,
           ),
           ReusableText(
-              text: 'To access contents of this page proceed to login  ',
+              text: 'To access the content of this page proceed to login',
               style: appStyle(12, Color(kDarkGrey.value), FontWeight.normal)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
@@ -44,7 +43,7 @@ class NonUser extends StatelessWidget {
               height: 40,
               color: Color(kOrange.value),
               onTap: () {
-                Get.to(() => const LoginPage());
+                Get.offAll(() => const LoginPage());
               },
               text: "Proceed to Login",
             ),

@@ -62,13 +62,13 @@ class _JobPageState extends State<JobPage> {
   FirebaseServices services = FirebaseServices();
 
   createChatRoom(Map<String, dynamic> jobDetails, List<String> users,
-      String chatRoomId, messageType) async {
+      String chatRoomId, messageType, String imageUrl) async {
     Map<String, dynamic> chatData = {
       'users': users,
       'chatRoomId': chatRoomId,
       'read': false,
       'job': jobDetails,
-      'profile': profile,
+      'profile': imageUrl,
       'sender': sender,
       'name': username,
       'agentName': widget.agentName,
@@ -284,8 +284,12 @@ class _JobPageState extends State<JobPage> {
                                                 .chatRoomExists(chatRoomId);
 
                                             if (doesChatExist == false) {
-                                              createChatRoom(jobDetails, users,
-                                                  chatRoomId, messageType);
+                                              createChatRoom(
+                                                  jobDetails,
+                                                  users,
+                                                  chatRoomId,
+                                                  messageType,
+                                                  job.imageUrl);
                                               zoomNotifier.currentIndex = 1;
 
                                               AppliedPost model =

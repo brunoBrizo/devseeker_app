@@ -31,7 +31,7 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _messageController = TextEditingController();
   final FocusNode _messageFocusNode = FocusNode();
   String imageUrl =
-      'https://d326fntlu7tb1e.cloudfront.net/uploads/bdec9d7d-0544-4fc4-823d-3b898f6dbbbf-vinci_03.jpeg';
+      'https://img.freepik.com/psd-gratuitas/ilustracao-3d-de-avatar-ou-perfil-humano_23-2150671142.jpg?w=740&t=st=1703773735~exp=1703774335~hmac=1b411a734352416dad909c0b24d7da1fcf9fc1706b22cef7f59dd90cb1157293';
 
   @override
   void dispose() {
@@ -39,13 +39,13 @@ class _ChatPageState extends State<ChatPage> {
     super.dispose();
   }
 
-  sendMessage() {
+  sendMessage(String? chatProfile) {
     var chat = Provider.of<AgentsNotifier>(context, listen: false).chat;
 
     Map<String, dynamic> message = {
       'message': _messageController.text,
       'messageType': 'text',
-      'profile': profile,
+      'profile': chatProfile ?? profile,
       'sender': userUid,
       'time': DateTime.now()
     };
@@ -131,10 +131,25 @@ class _ChatPageState extends State<ChatPage> {
                     builder: (context, agentNotifier, child) {
                       return Stack(
                         children: [
-                          CircleAvatar(
-                            backgroundImage:
-                                CachedNetworkImageProvider(imageUrl),
-                            radius: 15,
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 3),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50)),
+                            ),
+                            child: ClipRRect(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(50)),
+                              child: CachedNetworkImage(
+                                errorWidget: (context, url, error) {
+                                  return Image.network(imageUrl);
+                                },
+                                imageUrl: imageUrl,
+                                fit: BoxFit.cover,
+                                width: 30,
+                                height: 30,
+                              ),
+                            ),
                           ),
                           Positioned(
                             child: CircleAvatar(
@@ -250,52 +265,58 @@ class _ChatPageState extends State<ChatPage> {
                   ),
                 ),
               ),
-              Positioned(
-                top: 85,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                      color: Color(0xFFEFFFFC),
-                    ),
-                    child: Stack(
-                      children: [
-                        MessageList(chatRoomId: chatRoomId),
-                        Positioned(
-                          bottom: 0.h,
-                          child: MessagingTextController(
-                              sendText: () {
-                                sendMessage();
-                              },
-                              sendImages: () {
-                                imageNotifier.pickImage();
-                              },
-                              onTapOutside: (p0) {
-                                chatNotifier.isFocused = false;
-                                _services.removeTypingStatus(chatRoomId);
-                              },
-                              onTap: () {},
-                              onEditingComplete: () {
-                                chatNotifier.isFocused = false;
-                                FocusScope.of(context).unfocus();
-                              },
-                              onChanged: (message) => {
-                                    if (message.isNotEmpty || message != '')
-                                      {
-                                        chatNotifier.isFocused = true,
-                                        _services.addTypingStatus(chatRoomId)
-                                      }
+              Consumer<AgentsNotifier>(
+                builder: (context, agentsNotifier, child) {
+                  var jobDetails = agentsNotifier.chat['job'];
+                  return Positioned(
+                    top: 85,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 0),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20)),
+                          color: Color(0xFFEFFFFC),
+                        ),
+                        child: Stack(
+                          children: [
+                            MessageList(chatRoomId: chatRoomId),
+                            Positioned(
+                              bottom: 0.h,
+                              child: MessagingTextController(
+                                  sendText: () {
+                                    sendMessage(jobDetails['profile']);
                                   },
-                              messageController: _messageController,
-                              messageFocusNode: _messageFocusNode),
-                        )
-                      ],
-                    )),
+                                  sendImages: () {
+                                    imageNotifier.pickImage();
+                                  },
+                                  onTapOutside: (p0) {
+                                    chatNotifier.isFocused = false;
+                                    _services.removeTypingStatus(chatRoomId);
+                                  },
+                                  onTap: () {},
+                                  onEditingComplete: () {
+                                    chatNotifier.isFocused = false;
+                                    FocusScope.of(context).unfocus();
+                                  },
+                                  onChanged: (message) => {
+                                        if (message.isNotEmpty || message != '')
+                                          {
+                                            chatNotifier.isFocused = true,
+                                            _services
+                                                .addTypingStatus(chatRoomId)
+                                          }
+                                      },
+                                  messageController: _messageController,
+                                  messageFocusNode: _messageFocusNode),
+                            )
+                          ],
+                        )),
+                  );
+                },
               ),
             ],
           ),

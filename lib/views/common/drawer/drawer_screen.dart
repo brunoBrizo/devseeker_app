@@ -27,7 +27,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             ZoomDrawer.of(context)!.toggle();
           },
           child: Scaffold(
-            backgroundColor: Color(kLightBlue.value),
+            backgroundColor: Color(kDark.value),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,36 +37,36 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     "Home",
                     0,
                     zoomNotifier.currentIndex == 0
-                        ? Color(kLight.value)
-                        : Color(kLightGrey.value)),
+                        ? Color(kLightBlue.value)
+                        : Color(kLight.value)),
                 drawerItem(
                     Ionicons.chatbubble_outline,
                     "Chat",
                     1,
                     zoomNotifier.currentIndex == 1
-                        ? Color(kLight.value)
-                        : Color(kLightGrey.value)),
+                        ? Color(kLightBlue.value)
+                        : Color(kLight.value)),
                 drawerItem(
                     Fontisto.bookmark,
                     "Bookmarks",
                     2,
                     zoomNotifier.currentIndex == 2
-                        ? Color(kLight.value)
-                        : Color(kLightGrey.value)),
+                        ? Color(kLightBlue.value)
+                        : Color(kLight.value)),
                 drawerItem(
                     Ionicons.ios_file_tray_full_outline,
                     "Applications",
                     3,
                     zoomNotifier.currentIndex == 3
-                        ? Color(kLight.value)
-                        : Color(kLightGrey.value)),
+                        ? Color(kLightBlue.value)
+                        : Color(kLight.value)),
                 drawerItem(
                     FontAwesome5Regular.user_circle,
                     "Profile",
                     4,
                     zoomNotifier.currentIndex == 4
-                        ? Color(kLight.value)
-                        : Color(kLightGrey.value))
+                        ? Color(kLightBlue.value)
+                        : Color(kLight.value))
               ],
             ),
           ),

@@ -53,15 +53,11 @@ class _HomePageState extends State<HomePage> {
                           drawer: false,
                         ));
                   },
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(50)),
-                    child: CachedNetworkImage(
-                      width: 25.w,
-                      height: 25.h,
-                      fit: BoxFit.cover,
-                      imageUrl:
-                          "https://d326fntlu7tb1e.cloudfront.net/uploads/bdec9d7d-0544-4fc4-823d-3b898f6dbbbf-vinci_03.jpeg",
-                    ),
+                  child: Image.asset(
+                    'assets/images/profile2.png',
+                    width: 25.w,
+                    height: 25.h,
+                    fit: BoxFit.cover,
                   )),
             )
           ],

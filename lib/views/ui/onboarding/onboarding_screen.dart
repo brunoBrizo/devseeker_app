@@ -42,7 +42,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 children: const [PageOne(), PageTwo(), PageThree()],
               ),
               Positioned(
-                  bottom: hieght * 0.12,
+                  bottom: hieght * 0.05,
                   left: 0,
                   right: 0,
                   child: onBoardNotifier.isLastPage
@@ -61,41 +61,42 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         )),
               Positioned(
-                  child: onBoardNotifier.isLastPage
-                      ? const SizedBox.shrink()
-                      : Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 30.h),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    pageController.jumpToPage(2);
-                                  },
-                                  child: ReusableText(
-                                      text: "Skip",
-                                      style: appStyle(16, Color(kLight.value),
-                                          FontWeight.w500)),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    pageController.nextPage(
-                                        duration:
-                                            const Duration(milliseconds: 300),
-                                        curve: Curves.ease);
-                                  },
-                                  child: ReusableText(
-                                      text: "Next",
-                                      style: appStyle(16, Color(kLight.value),
-                                          FontWeight.w500)),
-                                )
-                              ],
-                            ),
+                child: onBoardNotifier.isLastPage
+                    ? const SizedBox.shrink()
+                    : Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 30.h),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  pageController.jumpToPage(2);
+                                },
+                                child: ReusableText(
+                                    text: "Skip",
+                                    style: appStyle(16, Color(kLight.value),
+                                        FontWeight.w500)),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  pageController.nextPage(
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.ease);
+                                },
+                                child: ReusableText(
+                                    text: "Next",
+                                    style: appStyle(16, Color(kLight.value),
+                                        FontWeight.w500)),
+                              )
+                            ],
                           ),
-                        ))
+                        ),
+                      ),
+              ),
             ],
           );
         },
