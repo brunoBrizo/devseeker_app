@@ -39,6 +39,10 @@ To run the application on a simulator or a connected device:
 
 Ensure you have Flutter installed on your system to run the application successfully.
 
+## Screenshots
+
+Here are some screenshots demonstrating various screens of the DevSeeker application:
+
 ## Contributing
 
 Contributions to improve the DevSeeker frontend application are welcome! To contribute:
