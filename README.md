@@ -42,7 +42,7 @@ Ensure you have Flutter installed on your system to run the application successf
 
 ## Screenshots
 
-Here are some screenshots demonstrating various screens of the DevSeeker application:
+Here are some screenshots demonstrating the screens of the DevSeeker application:
 https://drive.google.com/drive/folders/13jRum8UTkpQR29h6ry8o0jQC4ZqGucPD?usp=sharing
 
 ## Contributing
